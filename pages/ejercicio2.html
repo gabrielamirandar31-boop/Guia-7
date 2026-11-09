@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/styles.css" rel="stylesheet" />
+    <link rel="icon" href="../img/js.png" sizes="32x32" type="image/png" />
+    <title>Ejercicio 2 - Catálogo de películas</title>
+</head>
+
+<body>
+    <header class="p-3 text-bg-dark">
+        <div class="container d-flex flex-wrap align-items-center justify-content-between gap-3">
+            <h1 class="fs-4 m-0 text-white">Catálogo de películas (RapidAPI)</h1>
+            <nav class="d-flex flex-wrap gap-2">
+                <a href="../index.html" class="nav-link text-white">Inicio</a>
+                <a href="ejemplo1.html" class="nav-link text-white">Ejemplo 1</a>
+                <a href="ejemplo2.html" class="nav-link text-white">Ejemplo 2</a>
+                <a href="ejemplo3.html" class="nav-link text-white">Ejemplo 3</a>
+                <a href="ejemplo4.html" class="nav-link text-white">Ejemplo 4</a>
+                <a href="ejercicio1.html" class="nav-link text-white">Ejercicio 1</a>
+                <a href="ejercicio2.html" class="nav-link text-white">Ejercicio 2</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container my-4">
+        <!-- Mensajes de carga y de error -->
+        <div id="idEstado"></div>
+
+        <!-- Listado de recursos -->
+        <div id="idListado" class="row g-4"></div>
+    </main>
+
+    <!-- Modal con el detalle -->
+    <div class="modal fade" id="idModalDetalle" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-5" id="idTituloDetalle">Detalle</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body" id="idBodyDetalle"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/ejercicio2.js" defer></script>
+</body>
+</html>

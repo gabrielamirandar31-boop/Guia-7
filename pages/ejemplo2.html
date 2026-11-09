@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/styles.css" rel="stylesheet" />
+    <link rel="icon" href="../img/js.png" sizes="32x32" type="image/png" />
+    <title>Ejemplo 2 - Conteo de formulario</title>
+</head>
+
+<body>
+    <header class="p-3 text-bg-dark">
+        <div class="container d-flex flex-wrap align-items-center justify-content-between gap-3">
+            <a href="../index.html" class="text-white text-decoration-none fw-semibold">Guía 7</a>
+            <nav class="d-flex flex-wrap gap-2">
+                <a href="../index.html" class="nav-link text-white">Inicio</a>
+                <a href="ejemplo1.html" class="nav-link text-white">Ejemplo 1</a>
+                <a href="ejemplo2.html" class="nav-link text-white">Ejemplo 2</a>
+                <a href="ejemplo3.html" class="nav-link text-white">Ejemplo 3</a>
+                <a href="ejemplo4.html" class="nav-link text-white">Ejemplo 4</a>
+                <a href="ejercicio1.html" class="nav-link text-white">Ejercicio 1</a>
+                <a href="ejercicio2.html" class="nav-link text-white">Ejercicio 2</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body p-4">
+                        <h1 class="mb-4">Registro de usuario</h1>
+                        <form name="frmRegistro" id="frmRegistro" class="row g-3">
+                            <div class="col-md-6">
+                                <label for="txtNombre" class="form-label">Nombre</label>
+                                <input type="text" id="txtNombre" name="txtNombre" class="form-control" />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="txtApellido" class="form-label">Apellido</label>
+                                <input type="text" id="txtApellido" name="txtApellido" class="form-control" />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="txtPassword" class="form-label">Contraseña</label>
+                                <input type="password" id="txtPassword" name="txtPassword" class="form-control" />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="txtEmail" class="form-label">Correo</label>
+                                <input type="email" id="txtEmail" name="txtEmail" class="form-control" />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label d-block">Sexo</label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="rdoSexo" id="rdoMasculino" value="M" />
+                                    <label class="form-check-label" for="rdoMasculino">Masculino</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="rdoSexo" id="rdoFemenino" value="F" />
+                                    <label class="form-check-label" for="rdoFemenino">Femenino</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="txtFecha" class="form-label">Fecha de nacimiento</label>
+                                <input type="date" id="txtFecha" name="txtFecha" class="form-control" />
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label d-block">Intereses</label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="chkInteres" id="chkTecnologia" value="Tecnología" />
+                                    <label class="form-check-label" for="chkTecnologia">Tecnología</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="chkInteres" id="chkDeportes" value="Deportes" />
+                                    <label class="form-check-label" for="chkDeportes">Deportes</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="chkInteres" id="chkArte" value="Arte" />
+                                    <label class="form-check-label" for="chkArte">Arte</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="cmbPais" class="form-label">País</label>
+                                <select id="cmbPais" name="cmbPais" class="form-select">
+                                    <option value="">Seleccione</option>
+                                    <option value="MX">México</option>
+                                    <option value="ES">España</option>
+                                    <option value="AR">Argentina</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="archivo" class="form-label">Foto</label>
+                                <input type="file" id="archivo" name="archivo" class="form-control" />
+                            </div>
+                            <div class="col-12 text-end">
+                                <button type="button" name="btnRegistro" class="btn btn-primary">Registrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal fade" id="idModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-5">Resultado</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body" id="idBodyModal"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/ejemplo2.js" defer></script>
+</body>
+
+</html>
