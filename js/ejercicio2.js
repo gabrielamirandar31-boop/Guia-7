@@ -1,5 +1,5 @@
 // ================= CONFIGURACION DE LA API =================
-const API_KEY = "PEGA_AQUI_TU_API_KEY";
+const API_KEY = "c07b8b85ebmsha394a52fbc89df2p1bb831jsn9d2df9819ec6";
 const API_HOST = "moviesdatabase.p.rapidapi.com";
 const BASE_URL = `https://${API_HOST}`;
 
@@ -22,11 +22,19 @@ const modalDetalle = new bootstrap.Modal(
 );
 
 // ================= UTILIDADES =================
+// Reemplaza el texto de un elemento usando funciones DOM
+const ponerTexto = function (elemento, texto) {
+  while (elemento.firstChild) {
+    elemento.removeChild(elemento.firstChild);
+  }
+  elemento.appendChild(document.createTextNode(texto));
+};
+
 // Crea un elemento con clase y texto opcionales
 const crear = function (etiqueta, clase, texto) {
   const el = document.createElement(etiqueta);
   if (clase) el.setAttribute("class", clase);
-  if (texto !== undefined) el.textContent = texto;
+  if (texto !== undefined) el.appendChild(document.createTextNode(texto));
   return el;
 };
 
@@ -59,7 +67,9 @@ const pedir = async function (ruta) {
 
   if (!respuesta.ok) {
     if (respuesta.status === 401 || respuesta.status === 403) {
-      throw new Error("API key inválida o sin suscripción a la API (error " + respuesta.status + ").");
+      throw new Error(
+        "API key inválida o sin suscripción a la API (error " + respuesta.status + ")."
+      );
     }
     if (respuesta.status === 429) {
       throw new Error("Se superó el límite de peticiones del plan gratuito (error 429).");
@@ -126,7 +136,7 @@ const crearTarjeta = function (pelicula) {
 
 // ================= ENDPOINT 2: DETALLE =================
 const verDetalle = async function (id) {
-  tituloDetalle.textContent = "Cargando...";
+  ponerTexto(tituloDetalle, "Cargando...");
   mostrarCargando(bodyDetalle, "Consultando detalle...");
   modalDetalle.show();
 
@@ -134,7 +144,7 @@ const verDetalle = async function (id) {
     const datos = await pedir(`/titles/${id}?info=base_info`);
     const p = datos.results;
 
-    tituloDetalle.textContent = p.titleText.text;
+    ponerTexto(tituloDetalle, p.titleText.text);
     limpiar(bodyDetalle);
 
     const fila = crear("div", "row");
@@ -169,7 +179,7 @@ const verDetalle = async function (id) {
     fila.appendChild(colInfo);
     bodyDetalle.appendChild(fila);
   } catch (error) {
-    tituloDetalle.textContent = "Error";
+    ponerTexto(tituloDetalle, "Error");
     mostrarError(bodyDetalle, error.message || "No se pudo cargar el detalle.");
   }
 };
