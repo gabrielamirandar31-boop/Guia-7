@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/styles.css" rel="stylesheet" />
+    <link rel="icon" href="../img/js.png" sizes="32x32" type="image/png" />
+    <title>Ejemplo 1 - Formulario dinámico</title>
+</head>
+
+<body>
+    <header class="p-3 text-bg-dark">
+        <div class="container d-flex flex-wrap align-items-center justify-content-between gap-3">
+            <a href="../index.html" class="text-white text-decoration-none fw-semibold">Guía 7</a>
+            <nav class="d-flex flex-wrap gap-2">
+                <a href="../index.html" class="nav-link text-white">Inicio</a>
+                <a href="ejemplo1.html" class="nav-link text-white">Ejemplo 1</a>
+                <a href="ejemplo2.html" class="nav-link text-white">Ejemplo 2</a>
+                <a href="ejemplo3.html" class="nav-link text-white">Ejemplo 3</a>
+                <a href="ejemplo4.html" class="nav-link text-white">Ejemplo 4</a>
+                <a href="ejercicio1.html" class="nav-link text-white">Ejercicio 1</a>
+                <a href="ejercicio2.html" class="nav-link text-white">Ejercicio 2</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body p-4">
+                        <h1 class="mb-4">Crear elementos dinámicos</h1>
+                        <div class="row g-3 align-items-end">
+                            <div class="col-md-5">
+                                <label for="idCmbElemento" class="form-label">Tipo de elemento</label>
+                                <select id="idCmbElemento" class="form-select">
+                                    <option value="">Selecciona una opción</option>
+                                    <option value="text">Texto</option>
+                                    <option value="number">Número</option>
+                                    <option value="date">Fecha</option>
+                                    <option value="password">Contraseña</option>
+                                    <option value="email">Correo</option>
+                                    <option value="textarea">Área de texto</option>
+                                    <option value="select">Lista desplegable</option>
+                                    <option value="radio">Radio</option>
+                                    <option value="checkbox">Checkbox</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <button type="button" id="idBtnCrear" class="btn btn-primary w-100">Crear</button>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="button" id="idBtnAddElement" class="btn btn-success w-100">Agregar elemento</button>
+                            </div>
+                        </div>
+
+                        <form id="idNewForm" class="mt-4 row g-3"></form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal fade" id="idModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-5">Datos del control</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="idTituloElemento" class="form-label">Título del control</label>
+                        <input type="text" id="idTituloElemento" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="idNombreElemento" class="form-label">Nombre / ID</label>
+                        <input type="text" id="idNombreElemento" class="form-control" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/ejemplo1.js" defer></script>
+</body>
+
+</html>
